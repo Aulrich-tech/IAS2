@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1 Quiz · Systems Integration & Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+<div class="wires" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">SI</span>
+      <div class="brand-text">
+        <span class="brand-course">CIT 3102</span>
+        <span class="brand-sub">Systems Integration &amp; Architecture</span>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Reviewer</a>
+      <a href="quiz.html" class="active">Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- INTRO SCREEN -->
+  <section class="screen" id="screen-intro">
+    <p class="eyebrow">Module 01 / Quiz</p>
+    <h1>Test your recall</h1>
+    <p class="intro-sub">32 questions covering every definition, list, and pattern from Module 1 — Introduction to System Integration and Architecture.</p>
+    <div class="intro-stats">
+      <div class="stat"><span class="stat-num">32</span><span class="stat-label">Questions</span></div>
+      <div class="stat"><span class="stat-num">11</span><span class="stat-label">Topics</span></div>
+      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Retakes</span></div>
+    </div>
+    <button class="btn-primary" id="start-btn">Start Quiz →</button>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section class="screen hidden" id="screen-quiz">
+    <div class="quiz-top">
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="quiz-meta">
+        <span id="q-counter">Question 1 / 32</span>
+        <span id="q-score">Score: 0</span>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <p class="q-topic" id="q-topic">Topic</p>
+      <h2 class="q-text" id="q-text">Question text goes here</h2>
+      <div class="options" id="options"></div>
+    </div>
+
+    <div class="feedback hidden" id="feedback">
+      <p id="feedback-text"></p>
+      <button class="btn-primary small" id="next-btn">Next →</button>
+    </div>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section class="screen hidden" id="screen-results">
+    <p class="eyebrow">Results</p>
+    <h1 id="result-headline">Nice work</h1>
+    <div class="score-ring-wrap">
+      <svg class="score-ring" viewBox="0 0 160 160">
+        <circle class="ring-bg" cx="80" cy="80" r="70"></circle>
+        <circle class="ring-fg" id="ring-fg" cx="80" cy="80" r="70"></circle>
+      </svg>
+      <div class="score-ring-label">
+        <span id="result-score">0</span>
+        <span class="of">/ 32</span>
+      </div>
+    </div>
+    <p class="result-sub" id="result-sub">You got a percentage of questions right.</p>
+    <div class="result-actions">
+      <button class="btn-primary" id="retake-btn">Retake Quiz</button>
+      <a class="btn-ghost" href="index.html">Back to Reviewer</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>CIT 3102 · Systems Integration and Architecture — Module 1 Quiz</p>
+</footer>
+
+<script src="quiz.js"></script>
+</body>
+</html>

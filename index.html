@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1 Reviewer · Systems Integration & Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="reviewer.css">
+</head>
+<body>
+
+<div class="wires" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">SI</span>
+      <div class="brand-text">
+        <span class="brand-course">CIT 3102</span>
+        <span class="brand-sub">Systems Integration &amp; Architecture</span>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html" class="active">Reviewer</a>
+      <a href="quiz.html">Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Module 01 / Reviewer</p>
+      <h1>Introduction to System Integration and Architecture</h1>
+      <p class="hero-sub">Every term, table, and list from Module 1 — reorganized so it's actually reviewable. Everything below can be tapped open, and every list keeps its original count so you know when you've got them all.</p>
+    </div>
+    <svg class="hero-diagram" viewBox="0 0 360 260" aria-hidden="true">
+      <g class="wire-lines">
+        <line x1="180" y1="130" x2="60" y2="50"></line>
+        <line x1="180" y1="130" x2="300" y2="50"></line>
+        <line x1="180" y1="130" x2="50" y2="180"></line>
+        <line x1="180" y1="130" x2="310" y2="180"></line>
+        <line x1="180" y1="130" x2="180" y2="230"></line>
+      </g>
+      <circle class="node node-hub" cx="180" cy="130" r="14"></circle>
+      <circle class="node" cx="60" cy="50" r="8"></circle>
+      <circle class="node" cx="300" cy="50" r="8"></circle>
+      <circle class="node" cx="50" cy="180" r="8"></circle>
+      <circle class="node" cx="310" cy="180" r="8"></circle>
+      <circle class="node" cx="180" cy="230" r="8"></circle>
+    </svg>
+  </section>
+
+  <nav class="toc" aria-label="Section quick links">
+    <a href="#definitions">01 Definitions</a>
+    <a href="#purposes">02 Purposes</a>
+    <a href="#types">03 Types</a>
+    <a href="#methods">04 Methods</a>
+    <a href="#advantages">05 Advantages &amp; Challenges</a>
+    <a href="#stages">06 Project Stages</a>
+    <a href="#role">07 The Integrator</a>
+    <a href="#roles">08 Organizational Roles</a>
+    <a href="#aspects">09 Aspects of Importance</a>
+    <a href="#principles">10 Principles</a>
+    <a href="#patterns">11 Patterns &amp; Styles</a>
+  </nav>
+
+  <!-- 01 DEFINITIONS -->
+  <section class="block" id="definitions">
+    <div class="block-head">
+      <span class="block-num">01</span>
+      <h2>System Integration vs. System Architecture</h2>
+    </div>
+
+    <div class="card-grid two">
+      <div class="def-card">
+        <h3>System Integration</h3>
+        <p>The process of combining all virtual and physical components into a single, cohesive infrastructure.</p>
+        <ul class="tag-list">
+          <li><strong>Virtual components</strong> — data recorded in software, applications, and databases.</li>
+          <li><strong>Physical components</strong> — computer hardware modules.</li>
+        </ul>
+      </div>
+      <div class="def-card">
+        <h3>System Architecture</h3>
+        <p>The architectural model of a system, responsible for defining the system's behavior. It's the arrangement of components, their relationships, and how they interact to attain the system's goals.</p>
+        <p class="def-note">It lets new applications use existing resources with minimal interruption.</p>
+      </div>
+    </div>
+
+    <div class="compare-table">
+      <div class="compare-col">
+        <h4>System Integration</h4>
+        <ul>
+          <li>A process</li>
+          <li>Deals with software, hardware, and data</li>
+          <li>Produces a working, connected environment</li>
+        </ul>
+      </div>
+      <div class="compare-divider" aria-hidden="true">vs</div>
+      <div class="compare-col">
+        <h4>System Architecture</h4>
+        <ul>
+          <li>A design</li>
+          <li>Components and their relationships</li>
+          <li>A blueprint for building the connections</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 PURPOSES -->
+  <section class="block" id="purposes">
+    <div class="block-head">
+      <span class="block-num">02</span>
+      <h2>4 Purposes of System Integration</h2>
+    </div>
+    <div class="pill-grid four">
+      <div class="pill-card"><span class="pill-index">1</span>Ensure all systems operate in unison</div>
+      <div class="pill-card"><span class="pill-index">2</span>Streamline internal communication</div>
+      <div class="pill-card"><span class="pill-index">3</span>Streamline communication with external partners</div>
+      <div class="pill-card"><span class="pill-index">4</span>Expedite information flow and reduce operating cost</div>
+    </div>
+  </section>
+
+  <!-- 03 TYPES -->
+  <section class="block" id="types">
+    <div class="block-head">
+      <span class="block-num">03</span>
+      <h2>5 Types of Integration</h2>
+    </div>
+    <div class="accordion">
+      <details open>
+        <summary><span>Legacy System Integration</span><i>1</i></summary>
+        <p>How do we keep using an old system we cannot replace?</p>
+      </details>
+      <details>
+        <summary><span>Enterprise Application Integration</span><i>2</i></summary>
+        <p>How do we unify the many applications we bought as we grew?</p>
+      </details>
+      <details>
+        <summary><span>Data Integration</span><i>3</i></summary>
+        <p>How do we get one view of data spread across many databases?</p>
+      </details>
+      <details>
+        <summary><span>Enterprise to Enterprise</span><i>4</i></summary>
+        <p>How do we automate work that crosses company boundaries?</p>
+      </details>
+      <details>
+        <summary><span>Electronic Data Interchange (EDI)</span><i>5</i></summary>
+        <p>How do we stop exchanging paper documents with other companies?</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 04 METHODS -->
+  <section class="block" id="methods">
+    <div class="block-head">
+      <span class="block-num">04</span>
+      <h2>6 Methods of Integration</h2>
+    </div>
+
+    <div class="method-card">
+      <svg class="topo" viewBox="0 0 160 100"><line x1="20" y1="80" x2="140" y2="20"/><circle cx="20" cy="80" r="7"/><circle cx="140" cy="20" r="7"/></svg>
+      <div class="method-text">
+        <h3>Point to Point</h3>
+        <p>Direct connection between 2 system components.</p>
+      </div>
+    </div>
+
+    <div class="method-card">
+      <svg class="topo" viewBox="0 0 160 100"><line x1="80" y1="50" x2="20" y2="15"/><line x1="80" y1="50" x2="140" y2="15"/><line x1="80" y1="50" x2="20" y2="85"/><line x1="80" y1="50" x2="140" y2="85"/><circle class="hub" cx="80" cy="50" r="8"/><circle cx="20" cy="15" r="6"/><circle cx="140" cy="15" r="6"/><circle cx="20" cy="85" r="6"/><circle cx="140" cy="85" r="6"/></svg>
+      <div class="method-text">
+        <h3>Star</h3>
+        <p>5 systems require 10 connections. Enables enhanced functionality, but is sensible only with a limited number of subsystems.</p>
+      </div>
+    </div>
+
+    <div class="method-card">
+      <svg class="topo" viewBox="0 0 160 100"><line x1="80" y1="50" x2="20" y2="15"/><line x1="80" y1="50" x2="140" y2="15"/><line x1="80" y1="50" x2="20" y2="85"/><line x1="80" y1="50" x2="140" y2="85"/><circle class="hub" cx="80" cy="50" r="10"/><circle cx="20" cy="15" r="6"/><circle cx="140" cy="15" r="6"/><circle cx="20" cy="85" r="6"/><circle cx="140" cy="85" r="6"/></svg>
+      <div class="method-text">
+        <h3>Hub and Spoke</h3>
+        <p>5 connections instead of ten. The hub decouples data senders from receivers, significantly simplifying sustainability and security.</p>
+      </div>
+    </div>
+
+    <div class="method-card">
+      <svg class="topo" viewBox="0 0 160 100"><line x1="80" y1="90" x2="80" y2="60"/><line x1="80" y1="60" x2="80" y2="30"/><line x1="80" y1="30" x2="80" y2="10"/><circle cx="80" cy="90" r="6"/><circle cx="80" cy="60" r="6"/><circle cx="80" cy="30" r="6"/><circle cx="80" cy="10" r="6"/></svg>
+      <div class="method-text">
+        <h3>Vertical Integration</h3>
+        <p>Straightforward and uncomplicated with few systems. Ideal for basic, single-function integrations — but any new functionality requires its own silo.</p>
+      </div>
+    </div>
+
+    <div class="method-card">
+      <svg class="topo" viewBox="0 0 160 100"><line x1="10" y1="80" x2="150" y2="80"/><line x1="30" y1="80" x2="30" y2="20"/><line x1="80" y1="80" x2="80" y2="20"/><line x1="130" y1="80" x2="130" y2="20"/><circle cx="30" cy="20" r="6"/><circle cx="80" cy="20" r="6"/><circle cx="130" cy="20" r="6"/></svg>
+      <div class="method-text">
+        <h3>Horizontal Integration</h3>
+        <p>One line per subsystem, all feeding into one common layer. All subsystems communicate through that layer. (Covered properly in Module 6.)</p>
+      </div>
+    </div>
+
+    <div class="method-card">
+      <svg class="topo" viewBox="0 0 160 100"><rect x="60" y="35" width="40" height="30" rx="4"/><line x1="60" y1="50" x2="15" y2="50"/><line x1="100" y1="50" x2="145" y2="50"/><circle cx="15" cy="50" r="6"/><circle cx="145" cy="50" r="6"/></svg>
+      <div class="method-text">
+        <h3>Common Data Format</h3>
+        <p>Removes the need for an adapter per subsystem — they communicate seamlessly. Fairly complex, and requires extensive coding knowledge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 ADVANTAGES / CHALLENGES -->
+  <section class="block" id="advantages">
+    <div class="block-head">
+      <span class="block-num">05</span>
+      <h2>Advantages &amp; Challenges of System Integration</h2>
+    </div>
+    <div class="compare-table two-tone">
+      <div class="compare-col good">
+        <h4>Advantages</h4>
+        <ul>
+          <li>Consolidates and streamlines all correlated data</li>
+          <li>Improves data accessibility</li>
+          <li>Eliminates repetitive manual data entry</li>
+          <li>Centralized storage removes duplicate stores and their cost</li>
+        </ul>
+      </div>
+      <div class="compare-divider" aria-hidden="true">↔</div>
+      <div class="compare-col bad">
+        <h4>Challenges</h4>
+        <ul>
+          <li>Systems are genuinely hard to integrate</li>
+          <li>Variety of tools on the market makes choosing difficult</li>
+          <li>Integrating diverse systems is complex and time-consuming</li>
+          <li>Can simply be too expensive for many enterprises</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 STAGES -->
+  <section class="block" id="stages">
+    <div class="block-head">
+      <span class="block-num">06</span>
+      <h2>7 Stages of a System Integration Project</h2>
+    </div>
+    <ol class="timeline">
+      <li><span class="t-num">1</span><span class="t-label">Determine Requirements</span></li>
+      <li><span class="t-num">2</span><span class="t-label">Analyze Feasibility</span></li>
+      <li><span class="t-num">3</span><span class="t-label">Architect Design</span></li>
+      <li><span class="t-num">4</span><span class="t-label">Develop the Management Plan</span></li>
+      <li><span class="t-num">5</span><span class="t-label">System Integration Design</span></li>
+      <li><span class="t-num">6</span><span class="t-label">Implementation</span></li>
+      <li><span class="t-num">7</span><span class="t-label">Maintenance</span></li>
+    </ol>
+  </section>
+
+  <!-- 07 ROLE -->
+  <section class="block" id="role">
+    <div class="block-head">
+      <span class="block-num">07</span>
+      <h2>Role in Modern Organizations — The System Integrator</h2>
+    </div>
+    <div class="card-grid two">
+      <div class="def-card">
+        <h3>The System Integrator</h3>
+        <p>Specialized in bringing together disparate internal and external applications, combining multiple subsystems into a singular, integrated solution.</p>
+        <p class="def-note">These roles exist at every large Philippine bank, telco, and BPO.</p>
+      </div>
+      <div class="def-card accent">
+        <h3>Payoff</h3>
+        <p>Streamlined, real-time data sharing and increased efficiency.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 ROLES -->
+  <section class="block" id="roles">
+    <div class="block-head">
+      <span class="block-num">08</span>
+      <h2>5 Roles in Modern Organizations</h2>
+    </div>
+    <div class="pill-grid five">
+      <div class="pill-card"><span class="pill-index">1</span>Seamless data flow</div>
+      <div class="pill-card"><span class="pill-index">2</span>Process automation</div>
+      <div class="pill-card"><span class="pill-index">3</span>Enable digital transformation</div>
+      <div class="pill-card"><span class="pill-index">4</span>Flexibility and scalability</div>
+      <div class="pill-card"><span class="pill-index">5</span>Enable ecosystem integration</div>
+    </div>
+  </section>
+
+  <!-- 09 ASPECTS -->
+  <section class="block" id="aspects">
+    <div class="block-head">
+      <span class="block-num">09</span>
+      <h2>5 Aspects of Importance</h2>
+    </div>
+    <div class="pill-grid five">
+      <div class="pill-card"><span class="pill-index">1</span>Efficient workflow</div>
+      <div class="pill-card"><span class="pill-index">2</span>Data accuracy and consistency</div>
+      <div class="pill-card"><span class="pill-index">3</span>Enhanced decision making</div>
+      <div class="pill-card"><span class="pill-index">4</span>Scalability and flexibility</div>
+      <div class="pill-card"><span class="pill-index">5</span>Improved customer experience</div>
+    </div>
+  </section>
+
+  <!-- 10 PRINCIPLES -->
+  <section class="block" id="principles">
+    <div class="block-head">
+      <span class="block-num">10</span>
+      <h2>5 Key Principles</h2>
+    </div>
+    <div class="accordion">
+      <details open>
+        <summary><span>Loose Coupling</span><i>1</i></summary>
+        <p>Designing systems with minimal interdependencies. Enables adaptability and makes it simpler to modify.</p>
+      </details>
+      <details>
+        <summary><span>Service-Oriented Architecture</span><i>2</i></summary>
+        <p>Autonomous, loosely coupled services with well-defined interfaces.</p>
+      </details>
+      <details>
+        <summary><span>Data Integration and Transformation</span><i>3</i></summary>
+        <p>Merging and consolidating data from many sources.</p>
+      </details>
+      <details>
+        <summary><span>Scalability and Performance</span><i>4</i></summary>
+        <p>Handling growing data, traffic, and transactions while still meeting response-time expectations.</p>
+      </details>
+      <details>
+        <summary><span>Security and Governance</span><i>5</i></summary>
+        <p>Authentication, authorization, data protection, and access control — for availability, confidentiality, and integrity.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 11 PATTERNS -->
+  <section class="block" id="patterns">
+    <div class="block-head">
+      <span class="block-num">11</span>
+      <h2>9 Patterns and Styles</h2>
+    </div>
+    <div class="pattern-grid">
+      <div class="pattern-card"><h3>Point to Point</h3><p>Systems linked one to one.</p></div>
+      <div class="pattern-card"><h3>Hub and Spoke</h3><p>A central hub brokers between spokes.</p></div>
+      <div class="pattern-card"><h3>Publish / Subscribe</h3><p>Publishers publish to topics.</p></div>
+      <div class="pattern-card"><h3>Service-Oriented Architecture</h3><p>Reusable services with clear interfaces.</p></div>
+      <div class="pattern-card"><h3>Enterprise Service Bus</h3><p>Centralized message backbone that mediates.</p></div>
+      <div class="pattern-card"><h3>Event-Driven Architecture</h3><p>Components emit events.</p></div>
+      <div class="pattern-card"><h3>Microservices</h3><p>App split into small, independent services.</p></div>
+      <div class="pattern-card"><h3>Batch Processing</h3><p>Data collected over a period, then processed.</p></div>
+      <div class="pattern-card"><h3>Message-Oriented Middleware</h3><p>Asynchronous messaging that decouples sender and receiver.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Know it cold?</h2>
+    <p>Test yourself with the Module 1 quiz — same content, no peeking.</p>
+    <a class="cta-btn" href="quiz.html">Take the Quiz →</a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>CIT 3102 · Systems Integration and Architecture — Module 1 Reviewer</p>
+</footer>
+
+</body>
+</html>

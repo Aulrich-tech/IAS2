@@ -1,0 +1,117 @@
+/* ===== Module 2 additions (layered on top of reviewer.css) ===== */
+
+/* Three-column technology comparison (SOAP / REST / GraphQL) */
+.tri-compare {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 24px;
+}
+.tri-compare .tri-col {
+  padding: 20px 22px;
+  border-left: 1px solid var(--border);
+}
+.tri-compare .tri-col:first-child { border-left: none; }
+.tri-compare h4 {
+  font-family: var(--font-display);
+  margin: 0 0 12px;
+  font-size: 15px;
+  color: var(--accent);
+}
+.tri-compare .tri-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin: 12px 0 4px;
+}
+.tri-compare .tri-label:first-of-type { margin-top: 0; }
+.tri-compare .tri-val {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Simple header/row data table (verbs, platforms, tools) */
+.simple-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 20px;
+  font-size: 14px;
+}
+.simple-table th, .simple-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.simple-table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-2);
+  background: var(--surface-2);
+}
+.simple-table td { color: var(--text-muted); }
+.simple-table td strong { color: var(--text); }
+.simple-table tr:last-child td { border-bottom: none; }
+
+/* Callout / correction box */
+.note-box {
+  background: var(--accent-2-soft);
+  border: 1px solid rgba(242, 184, 75, 0.35);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 20px;
+}
+.note-box strong { color: var(--text); }
+.note-box .note-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-2);
+  margin-bottom: 8px;
+}
+
+/* Term chips for the must-know terms block */
+.term-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.term-chip {
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 7px 14px;
+  border-radius: 999px;
+}
+.term-section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin: 22px 0 10px;
+}
+.term-section-label:first-child { margin-top: 0; }
+
+@media (max-width: 760px) {
+  .tri-compare { grid-template-columns: 1fr; }
+  .tri-compare .tri-col { border-left: none; border-top: 1px solid var(--border); }
+  .tri-compare .tri-col:first-child { border-top: none; }
+  .simple-table { font-size: 13px; }
+  .simple-table th, .simple-table td { padding: 11px 12px; }
+}

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2 Reviewer · Systems Integration & Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="reviewer.css">
+<link rel="stylesheet" href="module2.css">
+</head>
+<body>
+
+<div class="wires" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark">SI</span>
+      <div class="brand-text">
+        <span class="brand-course">CIT 3102</span>
+        <span class="brand-sub">Systems Integration &amp; Architecture</span>
+      </div>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">M1 Reviewer</a>
+      <a href="quiz.html">M1 Quiz</a>
+      <a href="index2.html" class="active">M2 Reviewer</a>
+      <a href="quiz2.html">M2 Quiz</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Module 02 / Reviewer</p>
+      <h1>Integration Technologies and Protocols</h1>
+      <p class="hero-sub">Every protocol, principle, and platform from Module 2 — reorganized so it's actually reviewable. Tap any card open, and every list keeps its original count so you know when you've got them all.</p>
+    </div>
+    <svg class="hero-diagram" viewBox="0 0 360 260" aria-hidden="true">
+      <g class="wire-lines">
+        <line x1="180" y1="130" x2="60" y2="50"></line>
+        <line x1="180" y1="130" x2="300" y2="50"></line>
+        <line x1="180" y1="130" x2="50" y2="180"></line>
+        <line x1="180" y1="130" x2="310" y2="180"></line>
+        <line x1="180" y1="130" x2="180" y2="230"></line>
+      </g>
+      <circle class="node node-hub" cx="180" cy="130" r="14"></circle>
+      <circle class="node" cx="60" cy="50" r="8"></circle>
+      <circle class="node" cx="300" cy="50" r="8"></circle>
+      <circle class="node" cx="50" cy="180" r="8"></circle>
+      <circle class="node" cx="310" cy="180" r="8"></circle>
+      <circle class="node" cx="180" cy="230" r="8"></circle>
+    </svg>
+  </section>
+
+  <nav class="toc" aria-label="Section quick links">
+    <a href="#webservices">01 Web Services &amp; APIs</a>
+    <a href="#verbs">02 HTTP Verbs</a>
+    <a href="#syncasync">03 Sync vs Async</a>
+    <a href="#mom">04 MOM &amp; Message Queuing</a>
+    <a href="#soa">05 SOA</a>
+    <a href="#eda">06 EDA</a>
+    <a href="#microservices">07 Microservices</a>
+    <a href="#platforms">08 Platforms &amp; Tools</a>
+    <a href="#terms">09 Must-Know Terms</a>
+  </nav>
+
+  <!-- 01 WEB SERVICES & APIS -->
+  <section class="block" id="webservices">
+    <div class="block-head">
+      <span class="block-num">01</span>
+      <h2>Web Services &amp; the 3 API Styles</h2>
+    </div>
+
+    <div class="card-grid two">
+      <div class="def-card accent">
+        <h3>Web Service</h3>
+        <p>A defined method for facilitating communication and interoperability between different software systems over a network, delivered via the Web.</p>
+        <p class="def-note">Built on open standards: XML, SOAP, and HTTP.</p>
+      </div>
+      <div class="def-card">
+        <h3>Website vs. Web Service</h3>
+        <ul class="tag-list">
+          <li><strong>Requester</strong> — a browser asks (website) vs. a program asks (web service).</li>
+          <li><strong>Response</strong> — HTML for a human vs. XML/JSON for another program.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion" style="margin-top:20px;">
+      <details open>
+        <summary><span>SOAP — Simple Object Access Protocol</span><i>1</i></summary>
+        <p>A communications protocol that lets web services exchange structured data, based on XML, with a consistent request/response structure. Platform and language independent, so it's the natural fit for integrating systems built on different tech stacks. Most often rides on HTTP, but can also use SMTP or TCP. Book's example: a weather service that accepts a SOAP request with a location and returns an XML forecast.</p>
+      </details>
+      <details>
+        <summary><span>REST — Representational State Transfer</span><i>2</i></summary>
+        <p>An architectural style, not a protocol — it just uses HTTP's existing features. Emphasizes stateless client-server communication and drives actions on resources with the HTTP verbs GET, POST, PUT, DELETE. Usually exchanges lightweight JSON. Book's example: an e-commerce API for retrieving products, adding to cart, and placing orders.</p>
+      </details>
+      <details>
+        <summary><span>GraphQL</span><i>3</i></summary>
+        <p>A query language for APIs plus a runtime for executing those queries. Clients ask for exactly the data they need — cutting both over-fetching and under-fetching — and the server responds in JSON shaped the way the client asked. Book's example: a social media API returning a profile, posts, and related data in one round trip.</p>
+      </details>
+    </div>
+
+    <div class="tri-compare">
+      <div class="tri-col">
+        <h4>SOAP</h4>
+        <p class="tri-label">What it is</p><p class="tri-val">A protocol</p>
+        <p class="tri-label">Data format</p><p class="tri-val">XML only</p>
+        <p class="tri-label">Structure</p><p class="tri-val">Strict, fixed envelope</p>
+        <p class="tri-label">Strength</p><p class="tri-val">Formality, platform independence</p>
+        <p class="tri-label">Typical use</p><p class="tri-val">Enterprise, banking, legacy integration</p>
+      </div>
+      <div class="tri-col">
+        <h4>REST</h4>
+        <p class="tri-label">What it is</p><p class="tri-val">An architectural style</p>
+        <p class="tri-label">Data format</p><p class="tri-val">Usually JSON</p>
+        <p class="tri-label">Structure</p><p class="tri-val">HTTP verbs acting on resources</p>
+        <p class="tri-label">Strength</p><p class="tri-val">Simple, lightweight, uses HTTP as-is</p>
+        <p class="tri-label">Typical use</p><p class="tri-val">Public web and mobile APIs</p>
+      </div>
+      <div class="tri-col">
+        <h4>GraphQL</h4>
+        <p class="tri-label">What it is</p><p class="tri-val">A query language &amp; runtime</p>
+        <p class="tri-label">Data format</p><p class="tri-val">JSON</p>
+        <p class="tri-label">Structure</p><p class="tri-val">The client writes the query</p>
+        <p class="tri-label">Strength</p><p class="tri-val">No over-fetching, one round trip</p>
+        <p class="tri-label">Typical use</p><p class="tri-val">Apps with complex, varied data needs</p>
+      </div>
+    </div>
+    <p class="hero-sub" style="margin-top:16px;">The book's conclusion: there is no best API, only a best fit for the system's requirements, interoperability needs, and desired flexibility.</p>
+  </section>
+
+  <!-- 02 HTTP VERBS -->
+  <section class="block" id="verbs">
+    <div class="block-head">
+      <span class="block-num">02</span>
+      <h2>The 4 HTTP Verbs</h2>
+    </div>
+    <table class="simple-table">
+      <thead><tr><th>Verb</th><th>What it does</th><th>Plain example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>GET</strong></td><td>Read something</td><td>Show me product 42</td></tr>
+        <tr><td><strong>POST</strong></td><td>Create something</td><td>Add this item to the cart</td></tr>
+        <tr><td><strong>PUT</strong></td><td>Update something</td><td>Change the quantity</td></tr>
+        <tr><td><strong>DELETE</strong></td><td>Remove something</td><td>Take it out of the cart</td></tr>
+      </tbody>
+    </table>
+    <p class="hero-sub" style="margin-top:16px;">Stateless means the server keeps nothing about you between requests — every request must carry everything the server needs, which is why apps send a token on every call.</p>
+  </section>
+
+  <!-- 03 SYNC VS ASYNC -->
+  <section class="block" id="syncasync">
+    <div class="block-head">
+      <span class="block-num">03</span>
+      <h2>Synchronous vs. Asynchronous</h2>
+    </div>
+    <div class="compare-table two-tone">
+      <div class="compare-col good">
+        <h4>Synchronous</h4>
+        <ul>
+          <li>The sender waits for a response</li>
+          <li>Like a phone call — both parties must be free at once</li>
+          <li>SOAP, REST, GraphQL</li>
+          <li>If the receiver is down, the request fails</li>
+        </ul>
+      </div>
+      <div class="compare-divider" aria-hidden="true">↔</div>
+      <div class="compare-col bad">
+        <h4>Asynchronous</h4>
+        <ul>
+          <li>The sender carries on immediately</li>
+          <li>Like a courier — drop it off and leave</li>
+          <li>MOM, message queues</li>
+          <li>If the receiver is down, the message waits in the queue</li>
+        </ul>
+      </div>
+    </div>
+    <p class="hero-sub" style="margin-top:16px;">The test question: what happens in each case if the receiving system is down? That difference is the whole reason message queues exist.</p>
+  </section>
+
+  <!-- 04 MOM & MQ -->
+  <section class="block" id="mom">
+    <div class="block-head">
+      <span class="block-num">04</span>
+      <h2>Message-Oriented Middleware &amp; Message Queuing</h2>
+    </div>
+
+    <div class="card-grid two">
+      <div class="def-card">
+        <h3>MOM</h3>
+        <p>A software architecture that makes it easier for applications to communicate by exchanging messages. It provides a messaging backbone that manages delivery, routing, and transformation, abstracting the underlying protocol.</p>
+      </div>
+      <div class="def-card accent">
+        <h3>The Key Guarantee</h3>
+        <p class="def-note">MOM delivers messages even if sender and receiver are never online at the same moment, or the network or a system has problems.</p>
+      </div>
+    </div>
+
+    <p class="term-section-label">Message queuing (MQ)</p>
+    <p class="hero-sub">A core service MOM provides: storing messages in queues and managing them until the intended receiver consumes them, asynchronously.</p>
+
+    <p class="term-section-label">4 benefits of message queues</p>
+    <div class="pill-grid four">
+      <div class="pill-card"><span class="pill-index">1</span>Asynchronous communication</div>
+      <div class="pill-card"><span class="pill-index">2</span>Reliable delivery</div>
+      <div class="pill-card"><span class="pill-index">3</span>Load balancing</div>
+      <div class="pill-card"><span class="pill-index">4</span>Fault tolerance</div>
+    </div>
+
+    <p class="term-section-label">4 examples</p>
+    <div class="accordion">
+      <details>
+        <summary><span>Enterprise messaging</span><i>1</i></summary>
+        <p>Integrating many applications, systems, or departments — e.g. a bank's core system, payment gateway, and CRM all communicating through queues.</p>
+      </details>
+      <details>
+        <summary><span>Order processing</span><i>2</i></summary>
+        <p>An e-commerce order is added to a queue; inventory, shipping, and billing each consume from it and complete their jobs.</p>
+      </details>
+      <details>
+        <summary><span>Event-driven architecture</span><i>3</i></summary>
+        <p>MOM and MQ are essential building blocks for EDA — systems post events to a queue, and interested consumers subscribe.</p>
+      </details>
+      <details>
+        <summary><span>Internet of Things</span><i>4</i></summary>
+        <p>Sensors publish messages to queues; backend systems ingest them to assess, analyze, and trigger real-time actions.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 05 SOA -->
+  <section class="block" id="soa">
+    <div class="block-head">
+      <span class="block-num">05</span>
+      <h2>Service-Oriented Architecture (SOA)</h2>
+    </div>
+    <div class="def-card accent" style="margin-bottom:20px;">
+      <p style="margin:0;">Architecture that treats services as reusable components to enable interoperability and flexibility in system integration — encouraging loose coupling, modularity, and reusability through clearly articulated interfaces.</p>
+    </div>
+
+    <p class="term-section-label">5 principles</p>
+    <div class="accordion">
+      <details open>
+        <summary><span>Service Reusability</span><i>1</i></summary>
+        <p>Services encapsulate a functionality so it can be accessed by many consumers, encouraging code sharing and reducing duplication.</p>
+      </details>
+      <details>
+        <summary><span>Service Discoverability</span><i>2</i></summary>
+        <p>Achieved through service registries and directories, so clients can locate services, learn their capabilities, and how to engage with them.</p>
+      </details>
+      <details>
+        <summary><span>Service Loose Coupling</span><i>3</i></summary>
+        <p>Standardized interfaces (HTTP, message systems) reduce dependencies, so services can be developed, updated, and deployed independently.</p>
+      </details>
+      <details>
+        <summary><span>Service Interoperability</span><i>4</i></summary>
+        <p>Emphasis on open standards (XML, SOAP, REST, WSDL) so services on different technologies and platforms can still communicate.</p>
+      </details>
+      <details>
+        <summary><span>Service Composability</span><i>5</i></summary>
+        <p>Services are orchestrated or choreographed into more intricate business processes to accomplish specific goals.</p>
+      </details>
+    </div>
+
+    <p class="term-section-label">4 examples</p>
+    <table class="simple-table">
+      <thead><tr><th>System</th><th>Built from these services</th></tr></thead>
+      <tbody>
+        <tr><td><strong>E-commerce</strong></td><td>Product catalog, inventory, payment processing, order fulfillment</td></tr>
+        <tr><td><strong>Banking</strong></td><td>Account administration, transaction processing, fraud detection, CRM</td></tr>
+        <tr><td><strong>Travel booking</strong></td><td>Flight reservations, hotel bookings, car rentals, payment processing</td></tr>
+        <tr><td><strong>Government</strong></td><td>Social welfare management, online tax filing, permits &amp; licenses, public transit</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 06 EDA -->
+  <section class="block" id="eda">
+    <div class="block-head">
+      <span class="block-num">06</span>
+      <h2>Event-Driven Architecture (EDA)</h2>
+    </div>
+
+    <div class="compare-table">
+      <div class="compare-col">
+        <h4>SOA</h4>
+        <ul><li>Request-driven</li><li>Something calls a service and asks it to do work</li></ul>
+      </div>
+      <div class="compare-divider" aria-hidden="true">vs</div>
+      <div class="compare-col">
+        <h4>EDA</h4>
+        <ul><li>Event-driven</li><li>Something announces a thing happened; whoever cares reacts</li></ul>
+      </div>
+    </div>
+
+    <p class="term-section-label">5 principles</p>
+    <div class="accordion">
+      <details open>
+        <summary><span>Event Producers</span><i>1</i></summary>
+        <p>Components that produce events when a predetermined trigger or condition is met — internal or external changes.</p>
+      </details>
+      <details>
+        <summary><span>Event Consumers</span><i>2</i></summary>
+        <p>Subscribe to events they care about, then act, decide, or start further processes.</p>
+      </details>
+      <details>
+        <summary><span>Event Channels</span><i>3</i></summary>
+        <p>Carry events from producers to consumers — message queues, pub/sub systems, and event streaming platforms.</p>
+      </details>
+      <details>
+        <summary><span>Event Processing</span><i>4</i></summary>
+        <p>Handles events and decides the relevant action, in real time or batch depending on requirements.</p>
+      </details>
+      <details>
+        <summary><span>Event-Driven Middleware</span><i>5</i></summary>
+        <p>Event routers, brokers, and processing engines that make event routing, filtering, and processing possible.</p>
+      </details>
+    </div>
+    <p class="def-note" style="margin-top:10px;">Memory hook: producer announces → channel carries it → consumer reacts → processing decides → middleware makes it all work.</p>
+
+    <p class="term-section-label">5 examples</p>
+    <div class="pattern-grid">
+      <div class="pattern-card"><h3>Internet of Things</h3><p>Sensor/device events trigger real-time actions like smart-home adjustments or alerts.</p></div>
+      <div class="pattern-card"><h3>Financial Trading</h3><p>Price changes, executions, or cancellations let traders react and manage risk in real time.</p></div>
+      <div class="pattern-card"><h3>Logistics &amp; Supply Chain</h3><p>Inventory changes and shipment events enable real-time visibility and automated reactions.</p></div>
+      <div class="pattern-card"><h3>Social Media &amp; Notifications</h3><p>Interactions and status changes drive notifications, feed updates, and personalization.</p></div>
+      <div class="pattern-card"><h3>Distributed System Integration</h3><p>Events act as integration points between distributed systems and microservices.</p></div>
+    </div>
+  </section>
+
+  <!-- 07 MICROSERVICES -->
+  <section class="block" id="microservices">
+    <div class="block-head">
+      <span class="block-num">07</span>
+      <h2>Microservices Architecture</h2>
+    </div>
+    <div class="def-card accent" style="margin-bottom:20px;">
+      <p style="margin:0;">Organizes an application as a collection of small, independent services, each geared toward one business capability and independently developed, deployed, and scaled.</p>
+    </div>
+
+    <div class="compare-table">
+      <div class="compare-col">
+        <h4>Monolith</h4>
+        <ul>
+          <li>One application, one database</li>
+          <li>One change means redeploying everything</li>
+          <li>One crash brings the whole thing down</li>
+        </ul>
+      </div>
+      <div class="compare-divider" aria-hidden="true">vs</div>
+      <div class="compare-col">
+        <h4>Microservices</h4>
+        <ul>
+          <li>Many small services, each with its own data store</li>
+          <li>One change means redeploying one service</li>
+          <li>One crash takes out one feature</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="term-section-label">5 principles</p>
+    <div class="accordion">
+      <details open>
+        <summary><span>Service Independence</span><i>1</i></summary>
+        <p>Each service handles one business capability and can be built and deployed independently, so teams can work in parallel.</p>
+      </details>
+      <details>
+        <summary><span>Single Responsibility</span><i>2</i></summary>
+        <p>Each microservice owns one clearly specified capability with a well-defined interface to talk to others.</p>
+      </details>
+      <details>
+        <summary><span>Loose Coupling</span><i>3</i></summary>
+        <p>Services talk via lightweight protocols (HTTP/REST, messaging), with few dependencies, so each can evolve and scale on its own.</p>
+      </details>
+      <details>
+        <summary><span>Independent Data Management</span><i>4</i></summary>
+        <p>Each service owns its own database. Prevents a single centralized database from forming and stops one service's schema change from breaking another.</p>
+      </details>
+      <details>
+        <summary><span>Resilience &amp; Fault Isolation</span><i>5</i></summary>
+        <p>Built to withstand disruptions — one failing service shouldn't be allowed to take down the whole system.</p>
+      </details>
+    </div>
+
+    <div class="compare-table two-tone" style="margin-top:24px;">
+      <div class="compare-col good">
+        <h4>Benefits</h4>
+        <ul>
+          <li>Scalability</li>
+          <li>Agility</li>
+          <li>Fault tolerance</li>
+          <li>Independent development &amp; deployment</li>
+          <li>Improved team autonomy</li>
+        </ul>
+      </div>
+      <div class="compare-divider" aria-hidden="true">↔</div>
+      <div class="compare-col bad">
+        <h4>Difficulties</h4>
+        <ul>
+          <li>Managing communication between services</li>
+          <li>Ensuring data consistency</li>
+          <li>Complexities of distributed systems</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 PLATFORMS & TOOLS -->
+  <section class="block" id="platforms">
+    <div class="block-head">
+      <span class="block-num">08</span>
+      <h2>Integration Platforms &amp; Tools</h2>
+    </div>
+    <div class="card-grid two">
+      <div class="def-card">
+        <h3>Integration Platform</h3>
+        <p>An all-inclusive environment for planning, executing, and managing integrations — typically data translation, routing, message queuing, monitoring, and security.</p>
+      </div>
+      <div class="def-card">
+        <h3>Integration Tool</h3>
+        <p>A standalone product that concentrates on one particular integration feature or use case.</p>
+      </div>
+    </div>
+
+    <p class="term-section-label">4 integration platforms</p>
+    <table class="simple-table">
+      <tbody>
+        <tr><td><strong>MuleSoft Anypoint</strong></td><td>Centralized API development, app connection, and org-wide data integration via GUI, pre-built connectors, and integration patterns.</td></tr>
+        <tr><td><strong>IBM Integration Bus</strong></td><td>Formerly WebSphere Message Broker. Enterprise messaging, transformation, and connectivity across many protocols and systems.</td></tr>
+        <tr><td><strong>Dell Boomi</strong></td><td>Cloud-hosted, GUI-driven; covers application, data, and B2B integration for hybrid environments.</td></tr>
+        <tr><td><strong>Apache Kafka</strong></td><td>Fault-tolerant, high-throughput event streaming platform — used for EDA, microservice communication, and real-time data with pub/sub and scalable queuing.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="term-section-label">4 integration tools</p>
+    <table class="simple-table">
+      <tbody>
+        <tr><td><strong>Apache Camel</strong></td><td>Free, open-source framework applying enterprise integration patterns, with broad connector and data-transformation support.</td></tr>
+        <tr><td><strong>Postman</strong></td><td>API development and testing tool with a GUI for building, managing, and running API requests, plus collaboration and automation.</td></tr>
+        <tr><td><strong>Zapier</strong></td><td>No-code, cloud-based automation linking web apps via "Zaps" triggered by events.</td></tr>
+        <tr><td><strong>Jitterbit</strong></td><td>GUI platform for designing, deploying, and managing integrations, with connectors for cloud, on-prem, and databases, plus data mapping.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <span class="note-label">Correction to note</span>
+      The book states Postman "was created by the company Postgres." That's wrong — Postman is a product of Postman Inc., founded by Abhinav Asthana, and started as a browser extension for API testing. PostgreSQL ("Postgres") is an unrelated open-source relational database. <strong>If this comes up on an exam, the intended answer is that Postman is an API development and testing tool — don't repeat the faulty attribution.</strong>
+    </div>
+  </section>
+
+  <!-- 09 TERMS -->
+  <section class="block" id="terms">
+    <div class="block-head">
+      <span class="block-num">09</span>
+      <h2>Must-Know Terms</h2>
+    </div>
+
+    <p class="term-section-label">Section A — Web Services &amp; APIs</p>
+    <div class="term-chips">
+      <span class="term-chip">web service</span><span class="term-chip">API</span><span class="term-chip">SOAP</span><span class="term-chip">REST</span><span class="term-chip">GraphQL</span><span class="term-chip">XML</span><span class="term-chip">JSON</span><span class="term-chip">HTTP</span><span class="term-chip">SMTP</span><span class="term-chip">TCP</span><span class="term-chip">GET</span><span class="term-chip">POST</span><span class="term-chip">PUT</span><span class="term-chip">DELETE</span><span class="term-chip">stateless</span><span class="term-chip">over-fetching</span><span class="term-chip">under-fetching</span><span class="term-chip">round trip</span>
+    </div>
+
+    <p class="term-section-label">Section B — MOM &amp; Message Queuing</p>
+    <div class="term-chips">
+      <span class="term-chip">synchronous</span><span class="term-chip">asynchronous</span><span class="term-chip">MOM</span><span class="term-chip">message queuing (MQ)</span><span class="term-chip">queue</span><span class="term-chip">message persistence</span><span class="term-chip">message prioritizing</span><span class="term-chip">publish/subscribe</span><span class="term-chip">request/reply</span><span class="term-chip">reliable delivery</span><span class="term-chip">load balancing</span><span class="term-chip">fault tolerance</span>
+    </div>
+
+    <p class="term-section-label">Section C — SOA</p>
+    <div class="term-chips">
+      <span class="term-chip">SOA</span><span class="term-chip">service reusability</span><span class="term-chip">service discoverability</span><span class="term-chip">service loose coupling</span><span class="term-chip">service interoperability</span><span class="term-chip">service composability</span><span class="term-chip">service registry</span><span class="term-chip">WSDL</span><span class="term-chip">orchestration</span><span class="term-chip">choreography</span>
+    </div>
+
+    <p class="term-section-label">Section D — EDA</p>
+    <div class="term-chips">
+      <span class="term-chip">EDA</span><span class="term-chip">event</span><span class="term-chip">event producer</span><span class="term-chip">event consumer</span><span class="term-chip">event channel</span><span class="term-chip">event processing</span><span class="term-chip">event-driven middleware</span><span class="term-chip">event router</span><span class="term-chip">event broker</span><span class="term-chip">event streaming platform</span>
+    </div>
+
+    <p class="term-section-label">Section E — Microservices</p>
+    <div class="term-chips">
+      <span class="term-chip">microservices architecture</span><span class="term-chip">monolith</span><span class="term-chip">service independence</span><span class="term-chip">single responsibility</span><span class="term-chip">independent data management</span><span class="term-chip">resilience</span><span class="term-chip">fault isolation</span>
+    </div>
+
+    <p class="term-section-label">Section F — Platforms &amp; Tools</p>
+    <div class="term-chips">
+      <span class="term-chip">integration platform</span><span class="term-chip">integration tool</span><span class="term-chip">MuleSoft Anypoint</span><span class="term-chip">IBM Integration Bus</span><span class="term-chip">Dell Boomi</span><span class="term-chip">Apache Kafka</span><span class="term-chip">Apache Camel</span><span class="term-chip">Postman</span><span class="term-chip">Zapier</span><span class="term-chip">Jitterbit</span><span class="term-chip">Zap</span>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Know it cold?</h2>
+    <p>Test yourself with the Module 2 quiz — same content, no peeking.</p>
+    <a class="cta-btn" href="quiz2.html">Take the Quiz →</a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>CIT 3102 · Systems Integration and Architecture — Module 2 Reviewer</p>
+</footer>
+
+</body>
+</html>
